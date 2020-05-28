@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eagle Auto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"-->
+    <link rel="icon" type="image" href="https://www.pinclipart.com/picdir/big/24-247410_phoenix-silhouette-at-getdrawings-com-free-for-personal.png">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+<header id="home">
+    <div class="container">
+        <div class="hamburger-menu">
+            <i class="fas fa-bars toggle"></i>
+            <i class="fas fa-times toggle"></i>
+        </div>
+        <nav class="d-flex align-items-center justify-content-center justify-lg-between">
+            <a class="navbar-brand" href="index.html">
+                <img class="img-fluid" src="static/images/logo2.png" alt="">
+            </a>
+            <ul class="nav-list text-center p-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="hero-text w-100 text-center text-white px-2 px-sm-0">
+            <h1 class="display-4">Predict Car Price</h1>
+            <p class="lead mb-4">Your dream car is one step away!!!</p>
+            <h1></h1>
+
+            <!-- Form to enter new data for predictions  -->
+            <form action="{{ url_for('predict')}}"method="POST">
+                <input type="text" name="Year" placeholder="Year" required="required" /><br>
+    	        <input type="text" name="Mileage" placeholder="Mileage" required="required" /><br>
+                <input type="text" name="Make" placeholder="Make" required="required" /><br>
+                <input type="text" name="Model" placeholder="Model" required="required" /><br>
+
+                <button type="submit" class="btn mt-4 mb-5 mb-md-0">Predict</button>
+            </form>
+
+
+       
+        </div>
+        </div>
+    </div>
+</header>'
+
+
+<main>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="output">
+                {{pred}}
+            </div>
+            <div class="card-deck mx-auto" style="width: 18rem" >
+              {{ cards | safe}}
+            </div>
+    <br>
+    <br>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="row text-center text-white">
+                <div class="col-12 col-md-4 mb-md-0" data-aos="fade-up">
+                    <div class="shop-info">
+                        <i class="fab fa-algolia mb-3"></i>
+                        <h1 class="mb-4">Hours of Operation</h1>
+                        <p>Mon to Fri: 8:00am - 6:00pm</p>
+                        <p>Sat to Sun: 8:00am - 1:00pm</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-md-0" data-aos="fade-down">
+                    <div class="shop-info">
+                        <i class="fas fa-map-marked-alt mb-3"></i>
+                        <h1 class="mb-4">Our Location</h1>
+                        <address>
+                            SMU Bootcamp- Cohort Nov 2019
+                        </address>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-md-0" data-aos="fade-right">
+                    <div class="shop-info">
+                        <i class="fas fa-mobile-alt mb-3"></i>
+                        <h1 class="mb-4">Get in Touch</h1>
+                        <p>Just Yell and We find You!!!</p>
+
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5">
+        </div>
+
+        <div class="container-fluid p-0">
+            <div class="section-heading my-5 text-center">
+                <h4 class="text-white">Do not buy blindly</h4>
+                <h1 class="display-4">Facts about Cars</h1>
+            </div>
+
+            <!--Row1-->
+            <div class="row no-gutters">
+                <!--Column Set 1-->
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-1 order-xl-1" data-aos="fade-right">
+                    <img class="img-fluid" src="static/images/retro.png" alt="">
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-2 order-xl-2 point-left" data-aos="fade-left">
+                    <div class="menu-item-desc">
+                        <h6>Car Navigator</h6>
+                        <h1>Explanation</h1>
+                        <a href="#" class="btn mt-3 d-none d-xl-block">learn More</a>
+                    </div>
+                </div>
+                <!--Column Set 2-->
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-4 order-xl-3" data-aos="fade-left">
+                    <img class="img-fluid" src="static/images/retro2.png" alt="">
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-3 order-xl-4 point-left" data-aos="fade-right">
+                    <div class="menu-item-desc">
+                        <h6>More Analysis</h6>
+                        <h1>More Explanation</h1>
+                        <a href="#" class="btn mt-3 d-none d-xl-block">learn More</a>
+                    </div>
+                </div>
+                <!--Column Set 3-->
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-5 order-xl-5" data-aos="fade-right">
+                    <img class="img-fluid" src="static/images/retro3.png" alt="">
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-6 order-xl-6 point-left" data-aos="fade-left">
+                    <div class="menu-item-desc">
+                        <h6>Process Flow</h6>
+                        <h1>Please click here to see our steps</h1>
+                        <a href="#" class="btn mt-3 d-none d-xl-block">learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!--Row2-->
+            <div class="row no-gutters">
+                <!--Column Set 4-->
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-2 order-xl-2" data-aos="fade-right">
+                    <img class="img-fluid" src="static/images/retro5.png" alt="">
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-1 order-xl-1 point-right" data-aos="fade-left">
+                    <div class="menu-item-desc">
+                        <h6>More Analysis</h6>
+                        <h1>More Explanation</h1>
+                        <a href="#" class="btn mt-3 d-none d-xl-block">learn More</a>
+                    </div>
+                </div>
+                <!--Column Set 5-->
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-5 order-xl-4" data-aos="fade-right">
+                    <img class="img-fluid" src="static/images/retro6.png" alt="">
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-3 order-xl-3 point-right" data-aos="fade-left">
+                    <div class="menu-item-desc">
+                        <h6>GitHub</h6>
+                        <h1>Access to resourse codes of the project</h1>
+                        <a href="#" class="btn mt-3 d-none d-xl-block">learn More</a>
+                    </div>
+                </div>
+                <!--Column Set 6-->
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-6 order-xl-6" data-aos="fade-right">
+                    <img class="img-fluid" src="static/images/retro7.png" alt="">
+                </div>
+                <div class="col-12 col-sm-6 col-xl-2 order-sm-5 order-xl-5 point-right" data-aos="fade-left">
+                    <div class="menu-item-desc">
+                        <h6>Tableau Public</h6>
+                        <h1>Please click here to see the full version of analysis</h1>
+                        <a href="#" class="btn mt-3 d-none d-xl-block">learn More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="chef" id="chef">
+        <div class="container">
+            <div class="section-heading my-5 text-center">
+                <h4>Meet</h4>
+                <h1 class="display-4">Our Team</h1>
+            </div>
+        </div>
+
+            <div class="row text-center">
+                <div class="col-12 col-md-4" data-aos="fade-right">
+                    <img class="img-fluid" src="static/images/volkan.png" alt="">
+                    <div class="card-body">
+                        <h1>Volkan Kaya</h1>
+                        <h6>Duty Here</h6>
+                        <p>Favorite Car</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" data-aos="fade-up">
+                    <img class="img-fluid" src="static/images/mike.png" alt="">
+                    <div class="card-body">
+                        <h1>Mike Sammis</h1>
+                        <h6>Duty Here</h6>
+                        <p>BMW 330Ci</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" data-aos="fade-left">
+                    <img class="img-fluid" src="static/images/henry.png" alt="">
+                    <div class="card-body">
+                        <h1>Henry Greyner</h1>
+                        <h6>Duty Here</h6>
+                        <p>Mercedes AMG G63 Brabus 800</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" data-aos="fade-right">
+                    <img class="img-fluid" src="static/images/greg.png" alt="">
+                    <div class="card-body">
+                        <h1>Gregory O'Brien</h1>
+                        <h6>Duty Here</h6>
+                        <p>Favorite Car</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" data-aos="fade-up">
+                    <img class="img-fluid" src="static/images/michael.png" alt="">
+                    <div class="card-body">
+                        <h1>Michael Gonzales</h1>
+                        <h6>Duty Here</h6>
+                        <p>Favorite Car</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" data-aos="fade-left">
+                    <img class="img-fluid" src="static/images/baris.jfif" alt="">
+                    <div class="card-body">
+                        <h1>Baris Yalcin</h1>
+                        <h6>Duty Here</h6>
+                        <p>Mercedes SL 300 Gullwing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-center py-5">
+        &copy; Eagle Auto 2020
+    </footer>
+</main>
+
+<!--script src="https://kit.fontawesome.com/ba33ab971e.js"></script-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="static/scripts.js" type="text/javascript"></script>
+<script src="https://use.fontawesome.com/29311eb5e9.js"></script>
+</body>
+</html>

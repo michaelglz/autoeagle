@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Niconne&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Teko:300,400&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.navbar-brand{
+    position: absolute;
+    width: 100%;
+    max-width: 100px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 650ms;
+}
+
+.navbar-brand:hover{
+    opacity: .8;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(16,29,44, .95), rgba(16,29,44, .95)),
+                url("./img/back1.jpg") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.title{
+    font-family: "Niconne", cursive;
+    color: #c69963;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+.carousel-container{
+    width: 60%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 25px;
+}
+.carousel-slide img{
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-slide{
+    display: flex;
+    width: 100%;
+    height: 500px;
+}
+#previousBtn{
+   position: absolute;
+   top: 50%;
+   z-index: 10;
+    left: 5%;
+    font-size: 30px;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+#nextBtn{
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
